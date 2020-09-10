@@ -60,4 +60,9 @@ public class MainActivity extends AppCompatActivity implements CereApp.OnFragmen
     public void onFragmentInteraction(Uri uri) {
 
     }
+
+    public void sendInit(View view) {
+        CereApp fragment = (CereApp) getSupportFragmentManager().findFragmentById(R.id.fragment);
+        fragment.init("242", "sdfsdfsdf3243rfsd");
+    }
 }
