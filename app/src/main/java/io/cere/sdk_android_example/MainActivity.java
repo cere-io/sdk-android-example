@@ -14,8 +14,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import io.cere.cere_sdk.CereApp;
+import io.cere.cere_sdk.CereModule;
 
-public class MainActivity extends AppCompatActivity implements CereApp.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity {
+
+    private CereModule cereModule;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements CereApp.OnFragmen
                         .setAction("Action", null).show();
             }
         });
+        this.cereModule = CereModule.init(getApplicationContext(), "242", "sdfsdfsdf3243rfsd");
     }
 
     @Override
@@ -56,18 +60,14 @@ public class MainActivity extends AppCompatActivity implements CereApp.OnFragmen
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
-
     public void sendInit(View view) {
-        CereApp fragment = (CereApp) getSupportFragmentManager().findFragmentById(R.id.fragment);
-        fragment.init("242", "sdfsdfsdf3243rfsd");
+        //CereApp fragment = (CereApp) getSupportFragmentManager().findFragmentById(R.id.fragment);
+        //fragment.init("242", "sdfsdfsdf3243rfsd");
     }
 
     public void sendEvent(View view) {
-        CereApp fragment = (CereApp) getSupportFragmentManager().findFragmentById(R.id.fragment);
-        fragment.sendEvent();
+        //CereApp fragment = (CereApp) getSupportFragmentManager().findFragmentById(R.id.fragment);
+        //fragment.sendEvent();
+        this.cereModule.sendEvent();
     }
 }
