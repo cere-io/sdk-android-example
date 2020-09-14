@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import io.cere.cere_sdk.CereApp;
 import io.cere.cere_sdk.CereModule;
 
 public class MainActivity extends AppCompatActivity {
@@ -60,14 +59,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void sendInit(View view) {
-        //CereApp fragment = (CereApp) getSupportFragmentManager().findFragmentById(R.id.fragment);
-        //fragment.init("242", "sdfsdfsdf3243rfsd");
-    }
-
     public void sendEvent(View view) {
-        //CereApp fragment = (CereApp) getSupportFragmentManager().findFragmentById(R.id.fragment);
-        //fragment.sendEvent();
-        this.cereModule.sendEvent();
+        this.cereModule.sendEvent("APP_LAUNCHED_TEST", "{'locationId': 10}");
     }
 }
