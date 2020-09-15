@@ -13,12 +13,12 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Init"
+        android:text="Another activity"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="462dp"
-        android:onClick="sendInit"/>
+        android:onClick="goToAnotherActivity"/>
 
     <Button
         android:id="@+id/button2"

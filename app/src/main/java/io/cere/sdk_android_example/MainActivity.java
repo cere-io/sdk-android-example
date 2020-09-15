@@ -1,5 +1,6 @@
 package io.cere.sdk_android_example;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -61,5 +62,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendEvent(View view) {
         this.cereModule.sendEvent("APP_LAUNCHED_TEST", "{'locationId': 10}");
+    }
+
+    public void goToAnotherActivity(View view) {
+        Intent intent = new Intent(this, AnotherActivity.class);
+        this.startActivity(intent);
     }
 }
