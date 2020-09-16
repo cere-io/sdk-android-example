@@ -15,7 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import io.cere.cere_sdk.CereModule;
-import io.cere.cere_sdk.InitStatus;
+
 public class MainActivity extends AppCompatActivity {
 
     private CereModule cereModule;
@@ -35,11 +35,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        if (CereModule.getInstance() != null && CereModule.getInstance().getInitStatus() == InitStatus.Initialised) {
-            this.cereModule = CereModule.getInstance();
-        } else {
-            this.cereModule = CereModule.init(getApplicationContext(), "242", "userID");
-        }
+        this.cereModule = CereModule.getInstance(this.getApplication());
     }
 
     @Override

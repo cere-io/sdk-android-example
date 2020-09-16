@@ -17,6 +17,6 @@ public class AnotherActivity extends AppCompatActivity {
     }
 
     public void sendEvent(View view) {
-        CereModule.getInstance().sendEvent("APP_LAUNCHED_TEST", "{'locationId': 10}");
+        CereModule.getInstance(this.getApplication()).sendEvent("APP_LAUNCHED_TEST", "{'locationId': 10}");
     }
 }
