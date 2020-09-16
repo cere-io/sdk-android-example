@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        this.cereModule = CereModule.init(getApplicationContext(), "242", "sdfsdfsdf3243rfsd");
+        this.cereModule = CereModule.init(getApplicationContext(), "242", "userID");
     }
 
     @Override
