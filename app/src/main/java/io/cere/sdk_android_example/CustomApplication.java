@@ -9,7 +9,7 @@ public class CustomApplication extends Application {
     private CereModule cereModule = null;
     public void onCreate() {
         super.onCreate();
-        if (CereModule.getInstance(this).getInitStatus() == InitStatus.Initialised) {
+        if (CereModule.getInstance(this).getInitStatus() == InitStatus.Initialised.INSTANCE) {
             this.cereModule = CereModule.getInstance(this);
         } else {
             this.cereModule = CereModule.getInstance(this);
