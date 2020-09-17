@@ -13,6 +13,10 @@ public class CustomApplication extends Application {
             this.cereModule = CereModule.getInstance(this);
         } else {
             this.cereModule = CereModule.getInstance(this);
+            this.cereModule.setOnInitializationFinishedHandler(() -> {
+                this.cereModule.sendEvent("APP_LAUNCHED_TEST", "{'locationId': 10}");
+                return;
+            });
             this.cereModule.init("242", "userID");
         }
     }
