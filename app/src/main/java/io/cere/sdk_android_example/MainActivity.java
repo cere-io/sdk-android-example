@@ -1,5 +1,6 @@
 package io.cere.sdk_android_example;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -13,9 +14,11 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import io.cere.cere_sdk.CereApp;
+import io.cere.cere_sdk.CereModule;
 
-public class MainActivity extends AppCompatActivity implements CereApp.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity {
+
+    private CereModule cereModule;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements CereApp.OnFragmen
                         .setAction("Action", null).show();
             }
         });
+        this.cereModule = CereModule.getInstance(this.getApplication());
     }
 
     @Override
@@ -56,8 +60,12 @@ public class MainActivity extends AppCompatActivity implements CereApp.OnFragmen
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
+    public void sendEvent(View view) {
+        this.cereModule.sendEvent("APP_LAUNCHED_TEST", "{'locationId': 10}");
+    }
 
+    public void goToAnotherActivity(View view) {
+        Intent intent = new Intent(this, AnotherActivity.class);
+        this.startActivity(intent);
     }
 }
