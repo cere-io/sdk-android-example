@@ -22,7 +22,8 @@ public class CustomApplication extends Application {
             this.cereModule.setOnInitializationErrorHandler((String error) -> {
                     Log.e(TAG, error);
             });
-            this.cereModule.init("242", "userID");
+            //this.cereModule.init("242", "userID"); For version 1.0.0
+            this.cereModule.init("242", "userID", "user_1"); //Version 1.1.0
         }
     }
 }
