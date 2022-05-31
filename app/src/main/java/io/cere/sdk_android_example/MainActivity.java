@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendEvent(View view) {
-        this.cereModule.sendEvent("APP_LAUNCHED_TEST", "{'locationId': 10}");
+        this.cereModule.sendTrustedEvent("LIVE_ONE_CONTEXTUAL_ENTERED");
     }
 
     public void goToAnotherActivity(View view) {

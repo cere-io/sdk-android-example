@@ -15,15 +15,15 @@ public class CustomApplication extends Application {
             this.cereModule = CereModule.getInstance(this);
         } else {
             this.cereModule = CereModule.getInstance(this);
-            this.cereModule.setOnInitializationFinishedHandler(() -> {
-                this.cereModule.sendEvent("APP_LAUNCHED_TEST", "{'locationId': 10}");
-                return;
-            });
+//            this.cereModule.setOnInitializationFinishedHandler(() -> {
+//                this.cereModule.sendEventTrustedEvent("LIVE_ONE_CONTEXTUAL_ENTERED");
+//                return;
+//            });
             this.cereModule.setOnInitializationErrorHandler((String error) -> {
                     Log.e(TAG, error);
             });
             //this.cereModule.init("242", "userID"); For version 1.0.0
-            this.cereModule.init("242", "userID", "user_1"); //Version 1.1.0
+            this.cereModule.init("2354", "", "1234567890", "112112", "TRUSTED_3RD_PARTY");
         }
     }
 }
