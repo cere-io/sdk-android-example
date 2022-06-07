@@ -35,7 +35,7 @@ public class CustomApplication extends Application {
 //            this.cereModule.setLayout(params);
 //            this.cereModule.webview.layout(-10, -10, -10, 10);
 
-            this.cereModule.init("2354", "", "1234567890", "112112", "TRUSTED_3RD_PARTY");
+            this.cereModule.init("2096", "", "1234567890", "112112112", "TRUSTED_3RD_PARTY", "stage");
         }
     }
 }
