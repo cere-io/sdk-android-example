@@ -1,19 +1,12 @@
 package io.cere.sdk_android_example;
 
-import static android.view.ViewGroup.LayoutParams.FILL_PARENT;
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
-
-import android.app.Activity;
 import android.app.Application;
-import android.content.res.Resources;
 import android.util.Log;
-import android.widget.RelativeLayout;
-
-import androidx.annotation.NonNull;
+import android.view.View;
+import android.widget.Button;
 
 import io.cere.cere_sdk.CereModule;
 import io.cere.cere_sdk.InitStatus;
-import io.cere.cere_sdk.JSEventListener;
 
 public class CustomApplication extends Application {
     private static String TAG = "CustomApplication";
@@ -25,7 +18,7 @@ public class CustomApplication extends Application {
         } else {
             this.cereModule = CereModule.getInstance(this);
             this.cereModule.setOnInitializationErrorHandler((String error) -> {
-                    Log.e(TAG, error);
+                Log.e(TAG, error);
             });
 //            RelativeLayout.LayoutParams params = new  RelativeLayout.LayoutParams(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
 //            params.width = MATCH_PARENT;

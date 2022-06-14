@@ -2,17 +2,22 @@ package io.cere.sdk_android_example;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-
 import io.cere.cere_sdk.CereModule;
 
 public class MainActivity extends AppCompatActivity {
+
+    public static final String USER_HAS_NFTS = "User has nfts";
+    public static final String USER_DOES_NOT_HAVE_NFTS = "User does not have nfts";
 
     private CereModule cereModule;
 
@@ -23,6 +28,15 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         this.cereModule = CereModule.getInstance(this.getApplication());
+        this.cereModule.setOnInitializationFinishedHandler(this::showButtons);
+    }
+
+    private void showButtons() {
+        Handler mainHandler = new Handler(getMainLooper());
+        mainHandler.post(() -> {
+            ((Button) findViewById(R.id.button)).setVisibility(View.VISIBLE);
+            ((Button) findViewById(R.id.button2)).setVisibility(View.VISIBLE);
+        });
     }
 
     @Override
@@ -47,8 +61,12 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void sendEvent(View view) {
-        this.cereModule.sendTrustedEvent("LIVE_ONE_CONTEXTUAL_ENTERED");
+    public void hasNft(View view) {
+        this.cereModule.hasNfts(resp -> {
+            Toast.makeText(getApplicationContext(),
+                    Boolean.TRUE.equals(Boolean.valueOf(resp)) ? USER_HAS_NFTS : USER_DOES_NOT_HAVE_NFTS,
+                    Toast.LENGTH_LONG).show();
+        });
     }
 
     public void goToAnotherActivity(View view) {
