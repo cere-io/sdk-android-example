@@ -33,7 +33,7 @@ public class CustomApplication extends Application {
 //            this.cereModule.webview.layout(-10, -10, -10, 10);
 
 //            this.cereModule.init("2354", "", "1234567890", "112112112", "TRUSTED_3RD_PARTY", "dev");
-            this.cereModule.init("2096", "", "1234567890", "112112112", "TRUSTED_3RD_PARTY", "stage");
+            this.cereModule.init("2354", "", "1234567890", "112112112", "TRUSTED_3RD_PARTY", "dev");
             this.cereModule.attachEventListener((s, activity) -> {
                 if ("HEADER_CLICKED".equals(s)) {
                     activity.finish();

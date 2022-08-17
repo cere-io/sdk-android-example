@@ -6,6 +6,11 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import org.json.JSONObject;
+
 import io.cere.cere_sdk.CereModule;
 
 public class AnotherActivity extends AppCompatActivity {
@@ -17,6 +22,15 @@ public class AnotherActivity extends AppCompatActivity {
     }
 
     public void sendEvent(View view) {
-        CereModule.getInstance(this.getApplication()).sendTrustedEvent("LIVE_ONE_CONTEXTUAL_ENTERED");
+        Payload payload = new Payload("abc@abc.com");
+        try {
+            CereModule.getInstance(this.getApplication()).sendTrustedEvent("LIVE_ONE_CONTEXTUAL_ENTERED"
+                    , new ObjectMapper().writeValueAsString(payload)
+            );
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+//        CereModule.getInstance(this.getApplication()).sendTrustedEvent("LIVE_ONE_CONTEXTUAL_ENTERED");
     }
 }
